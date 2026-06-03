@@ -1,8 +1,8 @@
 import os
 from volcenginesdkarkruntime import Ark
 
-# client = Ark(api_key="4166326a-436b-4576-8790-9331a204182e")
-client = Ark(api_key="0559e2f5-2935-43a8-b6dc-04414763b707")
+# client = Ark(api_key="xxx")
+client = Ark(api_key="xxx")
 
 import base64
 
