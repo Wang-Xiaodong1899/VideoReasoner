@@ -8,7 +8,7 @@ import time
 
 client = OpenAI(
     base_url="https://api.ai-gaochao.cn/v1/",
-    api_key="sk-j39KGi7DXHUkHipN18D34a12E3Aa4d868b9c6dF8371c0e67",
+    api_key="xxx",
 )
 
 def translate_with_gpt(text):
