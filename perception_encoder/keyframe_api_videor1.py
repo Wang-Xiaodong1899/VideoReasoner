@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append("/mnt/bn/multimodal-datasets-hl/wangxd/Open-R1-Video-Mix/src/qwen-vl-utils/src")
+sys.path.append("/mnt/bn/wxd/wangxd/VideoReasoner/src/qwen-vl-utils/src")
 
 import torch
 # from .model import VTR_Model
@@ -25,7 +25,7 @@ from tqdm import tqdm
 import fire
 
 class PE_VTR_Model():
-    def __init__(self, device, model_path="/mnt/bn/multimodal-datasets-hl/llhuang/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
+    def __init__(self, device, model_path="/mnt/bn/wxd/llhuang/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
         super().__init__()
         self.device = device
         self.vtr_model_path = model_path
@@ -96,7 +96,7 @@ def get_video_embeddings(video_path):
 def qwen_process(query):
     import subprocess
     message = {
-        "model": "/mnt/bn/multimodal-datasets-hl/wuzhirong/models/Qwen3-8B", 
+        "model": "/mnt/bn/wxd/wuzhirong/models/Qwen3-8B", 
         "messages": [
             {"role": "user", "content": query}
         ],
@@ -220,7 +220,7 @@ def main(start=0, end=400):
                 continue
             if count >= end:
                 break
-            video_path = os.path.join("/mnt/bn/multimodal-datasets-hl/wangxd/data/Video-R1-data", video)
+            video_path = os.path.join("/mnt/bn/wxd/wangxd/data/Video-R1-data", video)
             try:
                 video_embedding = get_video_embeddings(video_path)
                 print(ques_id_dict)

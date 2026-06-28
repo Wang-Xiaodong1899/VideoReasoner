@@ -13,7 +13,7 @@ class VideoMME:
         self.video_dir = video_dir
         self.raw_anno_path = anno_path
         self.subset = subset
-        self.subtile_dir = "/mnt/bn/multimodal-datasets-hl/wuzhirong/hf_cache/videomme/subtitle"
+        self.subtile_dir = "/mnt/bn/wxd/wuzhirong/hf_cache/videomme/subtitle"
 
         df = pd.read_parquet(self.raw_anno_path)
         if self.subset == "long w/o subs" or self.subset == "long w subs":
@@ -29,7 +29,7 @@ class VideoMME:
         data = json.loads(data)
 
         # our pred event
-        csv_file = f"/mnt/bn/wxd-video-understanding/wangxd/eval/Open-R1-Video-V1/eval/benchmarks/videomme-{self.subset}-ques-event.csv"
+        csv_file = f"/mnt/wxd/wangxd/eval/Open-R1-Video-V1/eval/benchmarks/videomme-{self.subset}-ques-event.csv"
 
         df = pd.read_csv(csv_file)
 
@@ -62,9 +62,9 @@ class VideoMME:
         skip_keyframe = False
 
         # if self.subset == "short":
-        #     keyframe_data_path = "/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/videomme_short_f128_keyframe_index.json"
+        #     keyframe_data_path = "/mnt/wxd/wangxd/VideoReasoner/videomme_short_f128_keyframe_index.json"
         # elif self.subset == "medium":
-        #     keyframe_data_path = "/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/videomme_medium_f768_keyframe_index.json"
+        #     keyframe_data_path = "/mnt/wxd/wangxd/VideoReasoner/videomme_medium_f768_keyframe_index.json"
         # else:
         #     # report not support error
         #     # raise ValueError(f"Not support subset {self.subset}")
@@ -72,11 +72,11 @@ class VideoMME:
         #     print(f"Warning: Not support subset {self.subset}")
         #     skip_keyframe = True
         if self.subset == "short":
-            keyframe_data_path = "/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/videomme_short_f768_our-EGRPO_keyframe_index.json"
+            keyframe_data_path = "/mnt/wxd/wangxd/VideoReasoner/videomme_short_f768_our-EGRPO_keyframe_index.json"
         elif self.subset == "medium":
-            keyframe_data_path = "/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/videomme_medium_f768_our-EGRPO_keyframe_index.json"
+            keyframe_data_path = "/mnt/wxd/wangxd/VideoReasoner/videomme_medium_f768_our-EGRPO_keyframe_index.json"
         else:
-            keyframe_data_path = "/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/videomme_long_f768_our-EGRPO_keyframe_index.json"
+            keyframe_data_path = "/mnt/wxd/wangxd/VideoReasoner/videomme_long_f768_our-EGRPO_keyframe_index.json"
 
         if not skip_keyframe:
             with open(keyframe_data_path, 'r') as f:

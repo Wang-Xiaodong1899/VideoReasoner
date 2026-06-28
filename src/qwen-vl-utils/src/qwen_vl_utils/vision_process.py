@@ -29,7 +29,7 @@ MIN_PIXELS = 4 * 28 * 28
 MAX_PIXELS = int(os.getenv("MAX_PIXELS", 256 * 28 * 28)) # 16384*28*28
 MAX_RATIO = 200
 print(f"MAX_PIXELS: {MAX_PIXELS}")
-print("using qwen-vl-utils in /mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/src")
+print("using qwen-vl-utils in /mnt/wxd/wangxd/VideoReasoner/src")
 
 # VIDEO_MIN_PIXELS = 128 * 28 * 28
 # VIDEO_MAX_PIXELS = 768 * 28 * 28
@@ -1428,7 +1428,7 @@ def process_vision_keyframes_info(
                 img = F.to_pil_image(frame)
                 video_keyframes_inputs.append(img) # fetch_image
                 # save images
-                # img.save(f'/mnt/bn/multimodal-datasets-hl/wangxd/Open-R1-Video-Mix/select_keyframe_{idx}.png')
+                # img.save(f'/mnt/bn/wxd/wangxd/VideoReasoner/select_keyframe_{idx}.png')
         else:
             raise ValueError("image, image_url or video should in content.")
     if len(image_inputs) == 0:

@@ -208,7 +208,7 @@ class Qwen2VLGRPOVLLMTrainerModified(Trainer):
         if processing_class is None:
             if "Qwen" in model_id or "Aria" in model_id:
                 if "Qwen2-VL" in model_id and "Instruct" not in model_id:
-                    model_id = "/mnt/bn/wxd-video-understanding/wangxd/models/Qwen2-VL-7B-Instruct"
+                    model_id = "/mnt/wxd/wangxd/models/Qwen2-VL-7B-Instruct"
                     print("Loading Qwen2-VL-7B-Instruct processing class...")
                 processing_class = AutoProcessor.from_pretrained(model_id)
                 pad_token_id = processing_class.tokenizer.pad_token_id

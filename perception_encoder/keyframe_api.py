@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append("/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/src/qwen-vl-utils/src")
+sys.path.append("/mnt/wxd/wangxd/VideoReasoner/src/qwen-vl-utils/src")
 
 import torch
 # from .model import VTR_Model
@@ -25,7 +25,7 @@ from tqdm import tqdm
 import fire
 
 class PE_VTR_Model():
-    def __init__(self, device, model_path="/mnt/bn/wxd-video-understanding/wangxd/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
+    def __init__(self, device, model_path="/mnt/wxd/wangxd/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
         super().__init__()
         self.device = device
         self.vtr_model_path = model_path
@@ -102,7 +102,7 @@ def qwen_process(query):
     # openai.api_key = "EMPTY"  # vLLM 默认不需要 API key
     # openai.api_base = "http://localhost:8000/v1"
     # response = openai.ChatCompletion.create(
-    #     model="/mnt/bn/wxd-video-understanding/wangxd/models/Qwen3-8B",
+    #     model="/mnt/wxd/wangxd/models/Qwen3-8B",
     #     messages=[
     #         {"role": "user", "content": query},
     #     ],
@@ -115,7 +115,7 @@ def qwen_process(query):
     # output = response["choices"][0]["message"]["content"].split("</think>")[-1].strip()
     import subprocess
     message = {
-        "model": "/mnt/bn/wxd-video-understanding/wangxd/models/Qwen3-8B", 
+        "model": "/mnt/wxd/wangxd/models/Qwen3-8B", 
         "messages": [
             {"role": "user", "content": query}
         ],
@@ -293,7 +293,7 @@ def process_queries(queries, video_path):
     
 
 def main(start=0, end=400):
-    with open("/mnt/bn/wxd-video-understanding/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1/2_3_m_academic_mc_v0_1_qa_processed.json", "r") as f:
+    with open("/mnt/wxd/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1/2_3_m_academic_mc_v0_1_qa_processed.json", "r") as f:
         data = json.load(f)
     video_convs_dict = {}
     id_count = 0
@@ -318,7 +318,7 @@ def main(start=0, end=400):
                 continue
             if count >= end:
                 break
-            video_path = os.path.join("/mnt/bn/wxd-video-understanding/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1", video)
+            video_path = os.path.join("/mnt/wxd/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1", video)
             try:
                 video_embedding = get_video_embeddings(video_path)
                 print(ques_id_dict)

@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# stage-2 multi-task GRPO training
+
 import os
 import re
 from datetime import datetime

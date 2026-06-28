@@ -208,7 +208,7 @@ class Qwen2VLGRPOVLLMTrainerModified(Trainer):
         if processing_class is None:
             if "Qwen" in model_id or "Aria" in model_id:
                 if "Qwen2-VL" in model_id and "Instruct" not in model_id:
-                    model_id = "/mnt/bn/wxd-video-understanding/wangxd/models/Qwen2-VL-7B-Instruct"
+                    model_id = "/mnt/wxd/wangxd/models/Qwen2-VL-7B-Instruct"
                     print("Loading Qwen2-VL-7B-Instruct processing class...")
                 processing_class = AutoProcessor.from_pretrained(model_id)
                 pad_token_id = processing_class.tokenizer.pad_token_id
@@ -546,9 +546,9 @@ class Qwen2VLGRPOVLLMTrainerModified(Trainer):
         data_type = "video"
         # NOTE grpo for video r1 path
         # if data_type == 'image':
-        #     input_copy[1]['content'][0]['image'] = os.path.join("/mnt/bn/multimodal-datasets-hl/wangxd/data/Video-R1-data", inputs[0]['path'][2:])
+        #     input_copy[1]['content'][0]['image'] = os.path.join("/mnt/bn/wxd/wangxd/data/Video-R1-data", inputs[0]['path'][2:])
         # elif data_type == 'video':
-        #     input_copy[1]['content'][0]['video'] = os.path.join("/mnt/bn/multimodal-datasets-hl/wangxd/data/Video-R1-data", inputs[0]['path'][2:])
+        #     input_copy[1]['content'][0]['video'] = os.path.join("/mnt/bn/wxd/wangxd/data/Video-R1-data", inputs[0]['path'][2:])
         
         # print(input_copy[1]['content'][0])
         

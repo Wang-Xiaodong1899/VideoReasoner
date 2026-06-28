@@ -13,7 +13,7 @@ import os
 from qwen_vl_utils import process_vision_info
 
 class PE_VTR_Model():
-    def __init__(self, device, model_path="/mnt/bn/multimodal-datasets-hl/llhuang/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
+    def __init__(self, device, model_path="/mnt/bn/wxd/llhuang/models/PE-Core-G14-448/PE-Core-G14-448.pt"):
         super().__init__()
         self.device = device
         self.vtr_model_path = model_path
@@ -68,7 +68,7 @@ messages = [
         "content": [
             {
                 "type": "video",
-                "video": "/mnt/bn/multimodal-datasets-hl/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1/academic_source/activitynet/v_JOBSEatasv4.mp4",
+                "video": "/mnt/bn/wxd/wangxd/data/LLaVA-Video-178K/2_3_m_academic_v0_1/academic_source/activitynet/v_JOBSEatasv4.mp4",
                 # "max_pixels": 360 * 420,
                 "max_pixels": 720 * 480,
                 "fps": 2.0,

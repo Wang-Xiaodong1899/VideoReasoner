@@ -25,6 +25,7 @@ accelerate launch \
     --torch_dtype bfloat16 \
     --gradient_checkpointing
 """
+# stage-1 training
 
 import os
 import json
@@ -285,7 +286,7 @@ if __name__ == "__main__":
     # if Instruct not in model_config.model_name_or_path:
     if "Qwen2-VL" in model_config.model_name_or_path and "Instruct" not in model_config.model_name_or_path:
         processor = AutoProcessor.from_pretrained(
-            "/mnt/bn/wxd-video-understanding/wangxd/models/Qwen2-VL-7B-Instruct",
+            "/mnt/wxd/wangxd/models/Qwen2-VL-7B-Instruct",
             trust_remote_code=model_config.trust_remote_code
         )
         print("using Qwen2-VL-Instruct processor")

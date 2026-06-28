@@ -2,6 +2,8 @@ export NCCL_P2P_DISABLE=1
 export NCCL_IB_DISABLE=1
 export NCCL_DEBUG=INFO 
 
+# stage-1: multi-task cold start for Qwen2.5-VL-Instruct
+
 cd src/r1-v
 
 RANK=${1}
@@ -18,9 +20,9 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node="8" \
     --node_rank=${RANK} \
     --master_port="12354" \
     src/open_r1/sft_three_mixture.py \
-    --output_dir /mnt/bn/wxd-video-understanding/wangxd/ckpt/${SWANLAB_PROJECT}/${SWANLAB_NAME} \
-    --model_name_or_path /mnt/bn/wxd-video-understanding/wangxd/models/Qwen2.5-VL-7B-Instruct \
-    --dataset_name /mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/data/sft_data/mix_sft_data.json \
+    --output_dir /mnt/wxd/wangxd/ckpt/${SWANLAB_PROJECT}/${SWANLAB_NAME} \
+    --model_name_or_path /mnt/wxd/wangxd/models/Qwen2.5-VL-7B-Instruct \
+    --dataset_name /mnt/wxd/wangxd/VideoReasoner/data/sft_data/mix_sft_data.json \
     --deepspeed local_scripts/zero3_offload.json \
     --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 1 \

@@ -15,11 +15,11 @@ RUN_NAME=Qwen2.5-VL-7B-Instruct-f${FPS_MAX_FRAMES}-Mix-SFT-0720-N2-GQA-iou-acc-R
 
 export LOG_PATH=./${RUN_NAME}.txt
 
-QWEN_PATH=/mnt/bn/wxd-video-understanding/wangxd/ckpt/Qwen2.5-VL-Finetune-Zoomin-SFT/Qwen2.5-VL-7B-Instruct-zero3-offload-mix_sft_data_new_0720-N2
+QWEN_PATH=/mnt/wxd/wangxd/ckpt/Qwen2.5-VL-Finetune-Zoomin-SFT/Qwen2.5-VL-7B-Instruct-zero3-offload-mix_sft_data_new_0720-N2
 
-HF_DATASET=/mnt/bn/wxd-video-understanding/wangxd/Open-R1-Video-Mix/data/rl_data/filter_data/filter_GQA_da_ground.json
+HF_DATASET=/mnt/wxd/wangxd/VideoReasoner/data/rl_data/filter_data/filter_GQA_da_ground.json
 
-OUTPUT_DIR=/mnt/bn/wxd-video-understanding/wangxd/ckpt/${SWANLAB_PROJECT}/${RUN_NAME}
+OUTPUT_DIR=/mnt/wxd/wangxd/ckpt/${SWANLAB_PROJECT}/${RUN_NAME}
 if [ ! -d "$OUTPUT_DIR" ]; then
  mkdir -p "$OUTPUT_DIR"
 fi
@@ -33,7 +33,7 @@ DS_CONFIG="local_scripts/zero3_offload.json"
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node="8" \
     --nnodes="2" \
     --node_rank=${RANK} \
-    --master_addr="[2605:340:cd51:4900:31d6:9ba5:aa42:eb11]" \
+    --master_addr="[ip]" \
     --master_port="12352" \
     src/open_r1/grpo_clip_tgrpo_qa_0916.py \
     --reward_funcs iou accuracy format \

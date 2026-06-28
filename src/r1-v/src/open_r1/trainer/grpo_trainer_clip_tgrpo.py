@@ -437,7 +437,7 @@ class Qwen2VLGRPOTrainer(Trainer):
             # import pdb; pdb.set_trace()
         except Exception as e:
             print(f"process_vision_info error, using fixed data, {e}")
-            input_copy[1]['content'][0]['video'] = "/mnt/bn/wxd-video-understanding/wangxd/data/Video-R1-data/LLaVA-Video-178K/liwei_youtube_videos/videos/youtube_video_2024/ytb_7nRmsEw7nsE.mp4"
+            input_copy[1]['content'][0]['video'] = "/mnt/wxd/wangxd/data/Video-R1-data/LLaVA-Video-178K/liwei_youtube_videos/videos/youtube_video_2024/ytb_7nRmsEw7nsE.mp4"
             image_inputs, video_inputs, _, _, video_kwargs = process_vision_info(input_copy, return_video_kwargs=True)
 
         prompt_inputs = self.processing_class(

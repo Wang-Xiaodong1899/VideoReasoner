@@ -277,7 +277,7 @@ def main(script_args, training_args, model_args):
                     "content": [
                         {
                             "type": example['data_type'],
-                            # example['data_type']: os.path.join("/mnt/bn/multimodal-datasets-hl/wangxd/data/Video-R1-data", example['path'][2:])
+                            # example['data_type']: os.path.join("/mnt/bn/wxd/wangxd/data/Video-R1-data", example['path'][2:])
                             # example['data_type']: os.getcwd() + "/Video-R1-data" + example['path'][1:]
                         },
                         {

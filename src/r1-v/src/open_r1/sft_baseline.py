@@ -137,7 +137,7 @@ def prepare_dataset(example: Dict[str, Any]) -> Dict[str, List[Dict[str, Any]]]:
             "content": [
                 {
                     "type": example['data_type'],
-                    example['data_type']: os.path.join("/mnt/bn/multimodal-datasets-hl/wangxd/data/Video-R1-data", example['path'][2:])
+                    example['data_type']: os.path.join("/mnt/bn/wxd/wangxd/data/Video-R1-data", example['path'][2:])
                     # "max_pixels": 360*420,
                     # "fps": 1.0
                 },
@@ -245,7 +245,7 @@ if __name__ == "__main__":
     # if Instruct not in model_config.model_name_or_path:
     if "Qwen2-VL" in model_config.model_name_or_path and "Instruct" not in model_config.model_name_or_path:
         processor = AutoProcessor.from_pretrained(
-            "/mnt/bn/wxd-video-understanding/wangxd/models/Qwen2-VL-7B-Instruct",
+            "/mnt/wxd/wangxd/models/Qwen2-VL-7B-Instruct",
             trust_remote_code=model_config.trust_remote_code
         )
         print("using Qwen2-VL-Instruct processor")
