@@ -27,7 +27,7 @@ bash src/scripts/run_grpo_vllm_qwen25vl_GQA_iou_acc_0916.sh
 
 ## Eval
 ```
-python infer25_three_mixture_0911.py
+python infer25.py
 ```
 
 ## Acknowledgement
