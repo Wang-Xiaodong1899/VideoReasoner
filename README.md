@@ -46,4 +46,13 @@ If you find this useful, you can choose to cite us.
   pages={5444--5454},
   year={2026}
 }
+% Our previous work
+@misc{wang-2025-open-r1-video,
+  author = {Xiaodong Wang and Peixi Peng},
+  title = {Open-R1-Video},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/Wang-Xiaodong1899/Open-R1-Video}}
+}
 ```
